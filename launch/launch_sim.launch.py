@@ -37,11 +37,18 @@ def generate_launch_description():
                                    '-entity', 'my_bot'],
                         output='screen')
 
-
+    # Add the mqtt_robot_controller.py script as a node
+    mqtt_controller = Node(
+        package=package_name,
+        executable='mqtt_robot_controller.py',
+        name='mqtt_robot_controller',
+        output='screen'
+    )
 
     # Launch them all!
     return LaunchDescription([
         rsp,
         gazebo,
         spawn_entity,
+        mqtt_controller,
     ])
