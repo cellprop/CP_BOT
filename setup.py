@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'mqtt_robot_controller = CP_BOT.mqtt_robot_controller:main',
-            'road_follower = CP_BOT.src.road_follower:main',
+            'road_follower = CP_BOT.road_follower:main',
         ],
     },
 )

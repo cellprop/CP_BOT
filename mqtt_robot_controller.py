@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import paho.mqtt.client as mqtt
 import rclpy
 from rclpy.node import Node
@@ -51,3 +53,31 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+from setuptools import setup, find_packages
+
+package_name = 'CP_BOT'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=[package_name, package_name + '.src'],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='your_name',
+    maintainer_email='your_email@example.com',
+    description='TODO: Package description',
+    license='TODO: License declaration',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'mqtt_robot_controller = CP_BOT.mqtt_robot_controller:main',
+            'path_publisher = CP_BOT.src.path_publisher:main',
+            'road_follower = CP_BOT.src.road_follower:main',
+        ],
+    },
+)
